@@ -1,7 +1,7 @@
 wasmtime::component::bindgen!("./keyvalue.wit");
 wasmtime::component::bindgen!("./wasi_snapshot_preview1/testwasi.wit");
 
-use std::{collections::HashMap};
+use std::collections::HashMap;
 
 use keyvalue::{Keyvalue, KeyvalueError};
 
@@ -10,12 +10,11 @@ use wasmtime::{
     Config, Engine, Store,
 };
 
-
-struct Redis {
+struct Memory {
     inner: HashMap<String, Vec<u8>>,
 }
 
-impl Keyvalue for Redis {
+impl Keyvalue for Memory {
     fn get(&mut self, key: String) -> anyhow::Result<Result<Vec<u8>, KeyvalueError>> {
         let val = self.inner.get(&key).map(|v| v.to_vec());
         Ok(val.ok_or(KeyvalueError::KeyNotFound(String::from("key not found"))))
@@ -47,12 +46,12 @@ impl testwasi::Testwasi for HostTestwasi {
 }
 
 pub struct Ctx {
-    keyvalue: Redis,
+    keyvalue: Memory,
     testwasi: HostTestwasi,
 }
 
 fn main() -> anyhow::Result<()> {
-    let keyvalue = Redis {
+    let keyvalue = Memory {
         inner: HashMap::new(),
     };
     let testwasi = HostTestwasi {};

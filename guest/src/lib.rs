@@ -1,5 +1,3 @@
-
-
 wit_bindgen_guest_rust::generate!("../keyvalue.wit");
 
 struct Component {}
