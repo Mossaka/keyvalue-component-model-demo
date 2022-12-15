@@ -1,0 +1,2 @@
+[workspace]
+members = ["guest", "host", "wasi_snapshot_preview1"]

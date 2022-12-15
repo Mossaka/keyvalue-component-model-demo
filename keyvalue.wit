@@ -1,0 +1,27 @@
+/// a keyvalue interface
+interface keyvalue {
+	/// get the payload for a given key
+	get: func(key: string) -> result<list<u8>, keyvalue-error> 
+
+	/// set the payload for a given key
+	set: func(key: string, value: list<u8>) -> result<_, keyvalue-error>
+
+	/// delete the payload for a given key
+	delete: func(key: string) -> result<_, keyvalue-error>
+
+	/// common keyvalue errors
+	variant keyvalue-error {
+		key-not-found(string),
+	}
+}
+
+interface exports {
+	handler: func() -> string
+}
+
+
+world results {
+	import keyvalue: keyvalue
+	default export exports
+}
+  
