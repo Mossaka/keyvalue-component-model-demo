@@ -1,5 +1,5 @@
-wasmtime::component::bindgen!("../keyvalue.wit");
-wasmtime::component::bindgen!("../wasi_snapshot_preview1/testwasi.wit");
+wasmtime::component::bindgen!("./keyvalue.wit");
+wasmtime::component::bindgen!("./wasi_snapshot_preview1/testwasi.wit");
 
 use std::{collections::HashMap, env};
 
@@ -63,7 +63,7 @@ fn main() -> anyhow::Result<()> {
     let mut linker = Linker::new(&engine);
     keyvalue::add_to_linker(&mut linker, |ctx: &mut Ctx| &mut ctx.keyvalue)?;
     testwasi::add_to_linker(&mut linker, |ctx: &mut Ctx| &mut ctx.testwasi)?;
-    let component = Component::from_file(&engine, "../target/guest.component.wasm")?;
+    let component = Component::from_file(&engine, "./target/guest.component.wasm")?;
 
     let (results, _) = Results::instantiate(&mut store, &component, &linker)?;
     let res = results.handler(&mut store)?;

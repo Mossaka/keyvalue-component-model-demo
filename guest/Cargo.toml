@@ -11,3 +11,5 @@ wit-bindgen-guest-rust = { git = "https://github.com/bytecodealliance/wit-bindge
 
 [lib]
 crate-type = ["cdylib"]
+
+[workspace]

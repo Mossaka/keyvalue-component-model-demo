@@ -1,2 +1,16 @@
+[package]
+name = "host"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+wasmtime = { git = "https://github.com/bytecodealliance/wasmtime", branch = "main", features = ['component-model', 'default']}
+wasmtime-wasi = { git = "https://github.com/bytecodealliance/wasmtime", branch = "main" }
+anyhow = "1"
+
+[build-dependencies]
+wit-component = { git = "https://github.com/bytecodealliance/wasm-tools", branch = "main" }
+
 [workspace]
-members = ["guest", "host", "wasi_snapshot_preview1"]

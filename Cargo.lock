@@ -546,14 +546,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "guest"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "wit-bindgen-guest-rust",
-]
-
-[[package]]
 name = "hashbrown"
 version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -567,9 +559,6 @@ name = "heck"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2540771e65fc8cb83cd6e8a237f70c319bd5c29f78ed1084ba5d50eeac86f7f9"
-dependencies = [
- "unicode-segmentation",
-]
 
 [[package]]
 name = "hermit-abi"
@@ -596,7 +585,7 @@ dependencies = [
  "anyhow",
  "wasmtime",
  "wasmtime-wasi",
- "wit-component 0.3.2 (git+https://github.com/bytecodealliance/wasm-tools?branch=main)",
+ "wit-component",
 ]
 
 [[package]]
@@ -1221,12 +1210,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "unicode-segmentation"
-version = "1.10.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0fdbf052a0783de01e944a6ce7a8cb939e295b1e7be835a1112c3b9a7f047a5a"
-
-[[package]]
 name = "unicode-width"
 version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1303,14 +1286,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "wasi_snapshot_preview1"
-version = "0.0.0"
-dependencies = [
- "wasi",
- "wit-bindgen-guest-rust",
-]
-
-[[package]]
 name = "wasm-encoder"
 version = "0.20.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1325,16 +1300,6 @@ version = "0.20.0"
 source = "git+https://github.com/bytecodealliance/wasm-tools?branch=main#7c5aee98a571c8c1fa3ad5b6107f7656fecc531a"
 dependencies = [
  "leb128",
-]
-
-[[package]]
-name = "wasmparser"
-version = "0.95.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f2ea896273ea99b15132414be1da01ab0d8836415083298ecaffbe308eaac87a"
-dependencies = [
- "indexmap",
- "url",
 ]
 
 [[package]]
@@ -1765,83 +1730,6 @@ dependencies = [
  "bitflags",
  "io-lifetimes",
  "windows-sys",
-]
-
-[[package]]
-name = "wit-bindgen-core"
-version = "0.3.0"
-source = "git+https://github.com/bytecodealliance/wit-bindgen?branch=main#04da8c22848ba931a2601c6641af7d113f156b0e"
-dependencies = [
- "anyhow",
- "wit-component 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "wit-parser 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "wit-bindgen-gen-guest-rust"
-version = "0.3.0"
-source = "git+https://github.com/bytecodealliance/wit-bindgen?branch=main#04da8c22848ba931a2601c6641af7d113f156b0e"
-dependencies = [
- "heck",
- "wit-bindgen-core",
- "wit-bindgen-gen-rust-lib",
- "wit-component 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "wit-bindgen-gen-rust-lib"
-version = "0.3.0"
-source = "git+https://github.com/bytecodealliance/wit-bindgen?branch=main#04da8c22848ba931a2601c6641af7d113f156b0e"
-dependencies = [
- "heck",
- "wit-bindgen-core",
-]
-
-[[package]]
-name = "wit-bindgen-guest-rust"
-version = "0.3.0"
-source = "git+https://github.com/bytecodealliance/wit-bindgen?branch=main#04da8c22848ba931a2601c6641af7d113f156b0e"
-dependencies = [
- "bitflags",
- "wit-bindgen-guest-rust-macro",
-]
-
-[[package]]
-name = "wit-bindgen-guest-rust-macro"
-version = "0.3.0"
-source = "git+https://github.com/bytecodealliance/wit-bindgen?branch=main#04da8c22848ba931a2601c6641af7d113f156b0e"
-dependencies = [
- "proc-macro2",
- "syn",
- "wit-bindgen-core",
- "wit-bindgen-gen-guest-rust",
- "wit-bindgen-rust-macro-shared",
-]
-
-[[package]]
-name = "wit-bindgen-rust-macro-shared"
-version = "0.3.0"
-source = "git+https://github.com/bytecodealliance/wit-bindgen?branch=main#04da8c22848ba931a2601c6641af7d113f156b0e"
-dependencies = [
- "proc-macro2",
- "syn",
- "wit-bindgen-core",
- "wit-component 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "wit-component"
-version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "292a4db4b7de170ce349e2575f305ad592623ce16cbe824344894a10e60ab879"
-dependencies = [
- "anyhow",
- "bitflags",
- "indexmap",
- "log",
- "wasm-encoder 0.20.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "wasmparser 0.95.0",
- "wit-parser 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
