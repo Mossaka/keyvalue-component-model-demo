@@ -1,15 +1,15 @@
 wasmtime::component::bindgen!("./keyvalue.wit");
 wasmtime::component::bindgen!("./wasi_snapshot_preview1/testwasi.wit");
 
-use std::{collections::HashMap, env};
+use std::{collections::HashMap};
 
 use keyvalue::{Keyvalue, KeyvalueError};
-use testwasi::*;
+
 use wasmtime::{
     component::{Component, Linker},
     Config, Engine, Store,
 };
-use wasmtime_wasi::{WasiCtx, WasiCtxBuilder};
+
 
 struct Redis {
     inner: HashMap<String, Vec<u8>>,
@@ -67,7 +67,7 @@ fn main() -> anyhow::Result<()> {
 
     let (results, _) = Results::instantiate(&mut store, &component, &linker)?;
     let res = results.handler(&mut store)?;
-    println!("res from host: {:?}", res);
+    println!("res from host: {res:?}");
 
     Ok(())
 }

@@ -44,12 +44,9 @@ fn main() {
         .adapter("wasi_snapshot_preview1", &wasi_adapter)
         .expect("adapter failed to get loaded")
         .encode()
-        .expect(&format!(
-            "module {:?} can be translated to a component",
-            file
-        ));
-    let component_path = format!("./target/{}.component.wasm", stem);
-    fs::write(&component_path, component).expect("write component to disk");
+        .unwrap_or_else(|_| panic!("module {file:?} can be translated to a component"));
+    let component_path = format!("./target/{stem}.component.wasm");
+    fs::write(component_path, component).expect("write component to disk");
 
     println!("cargo:rerun-if-changed=./guest/Cargo.toml");
     println!("cargo:rerun-if-changed=./wasi_snapshot_preview1");
