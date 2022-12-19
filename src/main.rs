@@ -8,10 +8,6 @@ use keyvalue::{Keyvalue, KeyvalueError};
 
 use host::{add_to_linker, Wasi, WasiCtx};
 use wasi_cap_std_sync::WasiCtxBuilder;
-use wasi_common::{
-    clocks::{WasiMonotonicClock, WasiSystemClock},
-    pipe::ReadPipe,
-};
 use wasmtime::{
     component::{Component, Linker},
     Config, Engine, Store,
