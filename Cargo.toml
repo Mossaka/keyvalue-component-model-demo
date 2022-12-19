@@ -1,16 +1,17 @@
 [package]
-name = "host"
+name = "keyvalue-host"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-wasmtime = { git = "https://github.com/bytecodealliance/wasmtime", branch = "main", features = ['component-model', 'default']}
-wasmtime-wasi = { git = "https://github.com/bytecodealliance/wasmtime", branch = "main" }
+wasmtime = { git = "https://github.com/bytecodealliance/wasmtime", features = ['component-model', 'default']}
 anyhow = "1"
-
-[build-dependencies]
-wit-component = { git = "https://github.com/bytecodealliance/wasm-tools", branch = "main" }
+wasi-common = { git = "https://github.com/bytecodealliance/preview2-prototyping"}
+wasi-cap-std-sync = { git = "https://github.com/bytecodealliance/preview2-prototyping" }
+host = { git = "https://github.com/bytecodealliance/preview2-prototyping" }
+async-trait = "0.1"
+tokio = { version = "1.22.0", features = [ "rt-multi-thread", "macros" ] }
 
 [workspace]
