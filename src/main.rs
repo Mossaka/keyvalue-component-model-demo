@@ -6,7 +6,7 @@ use std::collections::HashMap;
 
 use keyvalue::{Keyvalue, KeyvalueError};
 
-use host::{add_to_linker, Wasi, WasiCtx};
+use host::{add_to_linker, WasiCtx};
 use wasi_cap_std_sync::WasiCtxBuilder;
 use wasmtime::{
     component::{Component, Linker},
