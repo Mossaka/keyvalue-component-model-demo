@@ -1,0 +1,3 @@
+[submodule "preview2-prototyping"]
+	path = preview2-prototyping
+	url = https://github.com/bytecodealliance/preview2-prototyping
