@@ -1,11 +1,11 @@
 use std::{path::PathBuf, process::Command};
 
 fn main() {
-    let mut cmd = Command::new("curl");
-    cmd.arg("-LO")
-        .arg("https://github.com/bytecodealliance/preview2-prototyping/releases/download/latest/wasi_snapshot_preview1.wasm");
-    let status = cmd.status().unwrap();
-    assert!(status.success());
+    // let mut cmd = Command::new("curl");
+    // cmd.arg("-LO")
+    //     .arg("https://github.com/bytecodealliance/preview2-prototyping/releases/download/latest/wasi_snapshot_preview1.wasm");
+    // let status = cmd.status().unwrap();
+    // assert!(status.success());
 
     let wasi_adapter = PathBuf::from("./wasi_snapshot_preview1.wasm");
     println!("wasi adapter: {:?}", &wasi_adapter);
